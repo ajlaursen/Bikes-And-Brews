@@ -1,17 +1,23 @@
-// zipcode api xTowP5iWQjEW3GuTr3HQyng5phTT92b4n8VLexpiAXKIWJ2DdUtKWWWn0n9AC8t4
-// zipcode js key js-iRo2591br0iSVen6HjZGUOQNQEIHIYpGlap3HgnFdoKPdK2mQDhrjhxclXmfPFo7
-// https://www.zipcodeapi.com/rest/<api_key>/info.<format>/<zip_code>/<units>
+$(document).ready(function() {
 
-// "https://www.zipcodeapi.com/rest/"+clientKey+"/info.json/" + zipcode + "/radians";
-var zipcode = "33813";
-var clientKey = "xTowP5iWQjEW3GuTr3HQyng5phTT92b4n8VLexpiAXKIWJ2DdUtKWWWn0n9AC8t4"
-$("#searchbuttonplaceholder").click(function(){
-   var userEntry = $("textinputplaceholder").val().Trim()
-   var url = "https://www.zipcodeapi.com/rest/"+clientKey+"/info.json/" + zipcode + "/radians";
-   $.ajax({
-    "url": url,   
-    "dataType": "json"
-}).then(function(response) {
-    console.log(response);
-}
-)
+
+var clientKey = "5544a9b0-1613-11eb-b538-2f88524d0231"
+
+// api call to get latitude and longitude
+$("#zip").click(function(event){
+    event.preventDefault();
+    var userEntry = $("#search").val();
+    console.log(userEntry);
+    var url = "https://app.zipcodebase.com/api/v1/search?apikey="+clientKey+"&codes="+ userEntry + "&country=US"
+
+    $.ajax({
+        "url": url,   
+        "dataType": "json"
+    }).then(function(response){
+        var rerturnedResults = response.results[userEntry]
+        var lat = rerturnedResults[0].latitude
+        var lon = rerturnedResults[0].longitude
+        console.log(lat, lon)
+    })
+})
+})
