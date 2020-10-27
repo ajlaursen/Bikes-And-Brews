@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+var trailData;
 
 var clientKey = "5544a9b0-1613-11eb-b538-2f88524d0231"
 
@@ -30,9 +30,39 @@ $("#zip").click(function(event){
             }
         }
         
-        $.ajax(settings).done(function (response) {
+        $.ajax(settings).then(function (response) {
             console.log(response);
+            $("#display-table").removeClass("d-none")
+            trailData = response.data
+            for (let index = 0; index < trailData.length; index++) {
+                const element = trailData[index];
+                $("#trail" + index).text(element.name);
+                
+            }
+            
         });
     })
 })
+$(".trail-row").click(function(){
+    $("#trail-name-modal").empty();
+    $("#trail-length").empty();
+    $("#trail-diff").empty();
+    $("#trail-descrip").empty();
+    $("#trail-img").empty();
+    var dataId = $(this).attr("data-id")
+    console.log(dataId);
+    $("#trailInfo1").modal("show")
+    $("#trail-name-modal").text(trailData[dataId].name);
+    $("#trail-length").text("Length: " + trailData[dataId].length + " miles");
+    $("#trail-diff").text("Difficulty: " + trailData[dataId].difficulty);
+    $("#trail-descrip").text(trailData[dataId].description);
+    $("#trail-img").attr("src", trailData[dataId].thumbnail);
+    $("#trail-link").click(function(){
+        window.location.href=trailData[dataId].url;
+    })
+    })
+
 })
+
+
+

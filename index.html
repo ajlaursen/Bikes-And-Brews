@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Bikes and Brews</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,16 +16,26 @@
     <h1 class="display-4">Bike and Brews</h1>
     <p class="lead">Enjoy two of our favorite combos, bikes and brews!</p>
     
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <!-- Carousel images -->
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="4000">
       <div class="carousel-inner">
         <div class="carousel-item active">
-            <img style="max-width: 650px;" src="https://media.theradavist.com/uploads/2020/10/LeafPeepCDT-21.jpg?w=2000&quality=75" class="d-inline-flex w-100" alt="solo mtb in the fall">
+          <img style="max-width: 600px;" src="https://media.theradavist.com/uploads/2020/10/LeafPeepCDT-21.jpg?w=2000&quality=75" class="d-inline-block w-100 rounded shadow" alt="solo mtb in the fall">
         </div>
         <div class="carousel-item">
-          <img style="max-width: 650px;" src="https://media.theradavist.com/uploads/2020/10/LeafPeepCDT-1.jpg?w=1400&quality=75" class="d-inline-flex w-100" alt="group mtb in the fall">
+          <img style="max-width: 600px;" src="https://media.theradavist.com/uploads/2020/10/LeafPeepCDT-1.jpg?w=1400&quality=75" class="d-inline-block w-100 rounded shadow" alt="group mtb in the fall">
         </div>
         <div class="carousel-item">
-          <img style="max-width: 650px;" src="https://media.theradavist.com/uploads/2020/10/Hopewell-9-1.jpg?w=2000&quality=75" class="d-inline-flex w-100" alt="cheers to beers">
+          <img style="max-width: 600px;" src="https://media.theradavist.com/uploads/2020/10/Hopewell-9-1.jpg?w=2000&quality=75" class="d-inline-block w-100 rounded shadow" alt="cheers to beers">
+        </div>
+        <div class="carousel-item">
+          <img style="max-width: 600px;" src="https://media.theradavist.com/uploads/2020/10/Hopewell-74.jpg?fit=2000,2000&quality=75" class="d-inline-block w-100 rounded shadow" alt="two friends on bikes talking">
+        </div>    
+        <div class="carousel-item">
+          <img style="max-width: 600px;" src="https://media.theradavist.com/uploads/2020/10/Hopewell-10.jpg?fit=2000,2000&quality=75" class="d-inline-block w-100 rounded shadow" alt="three people riding mountain bikes outside">
+        </div>
+        <div class="carousel-item">
+          <img style="max-width: 600px;" src="https://media.theradavist.com/uploads/2020/10/LeafPeepCDT-6.jpg?fit=2000,2000&quality=75" class="d-inline-block w-100 rounded shadow" alt="two people riding mountain bikes">
         </div>
       </div>
     </div>
@@ -33,18 +43,153 @@
   </div>
 </div>
 
-<div class="card-group d-flex justify-content-center align-items-sm-center">
-<div class="card bg-light mb-3" style="max-width: 25rem;">
-    <div class="card-body">
+<!-- -->
+
+<div class="card-group d-flex justify-content-center rounded">
+<div class="card bg-light shadow mb-3" style="max-width: 25rem;">
+    <div class="card-body mx-auto">
     <h5 class="card-title text-center">Find your trails and Brews</h5>
     <form class="form">
-    <input class="form-control mr-5" type="search" id="search" placeholder="Zip Code" aria-label="Search">
-    <button class="btn btn-outline-success m-3 search-zip" type="submit" id="zip">Enter your Zip</button>
+
+    <input class="form-control mr-5" type="search" placeholder="Zip Code" aria-label="Search" id="search">
+
+    <button class="btn btn-outline-success m-3" type="submit" id="zip">Enter your Zip</button>
     <button class="btn btn-outline-success m-3" type="submit" id="user-location">Use my location</button>
   </form>
     </div>
     </div>
   </div>
+
+
+
+<div class="container card-group d-none" id="display-table">
+<div class="card border rounded bg-light mt-5 mb-3 mx-auto shadow" style="max-width: 25rem;">
+  <div class="card-header font-weight-bold text-center">Trails</div>
+  <div class="card-body">
+    
+
+<table class="table table-borderless">
+  
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td class="trail-row" id="trail0" data-id="0"></td>
+      
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td class="trail-row"id="trail1" data-id="1"></td>
+     
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td class="trail-row" id="trail2" data-id="2"></td>
+      
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td class="trail-row" id="trail3" data-id="3"></td>
+      
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td class="trail-row" id="trail4" data-id="4"></td>
+      
+    </tr>
+  </tbody>
+</table>
+  </div>
+</div>
+
+<div class="card border rounded bg-light mt-5 mb-3 mx-auto shadow" style="max-width: 25rem;">
+<div class="card-header font-weight-bold text-center">Breweries</div>
+  <div class="card-body">
+<table class="table table-borderless">
+
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td id="brew0" data-id="0"></td>
+     
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td id="brew1" data-id="1"></td>
+      
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td id="brew2" data-id="2"></td>
+    
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td id="brew3" data-id="3"></td>
+    
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td id="brew4" data-id="4"></td>
+    
+    </tr>
+  </tbody>
+</table>
+  </div>
+</div>
+</div>
+
+
+<!-- Modals for brewery / trail info when user clicks one of the results -->
+
+<div class="modal" tabindex="-1" id="brewInfo1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"> <!-- Brewery NAME --> <</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p> <!-- Brewery INFO --></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success m-3" > Take me there </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" id="trailInfo1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="trail-name-modal"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4 id="trail-length"></h4>
+        <h4 id="trail-diff"></h4>
+        <p id="trail-descrip"></p>
+        <img src="" style="max-width: 100%;" class="rounded shadow" alt="" id="trail-img">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success m-3" id="trail-link"> Take me there </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<footer class="page-footer font-small blue">
+  <div class="footer-copyright text-center py-3">Made by Team Awesome.
+   </div>
+  </footer>
 
 
 
