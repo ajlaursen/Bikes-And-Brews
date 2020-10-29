@@ -4,6 +4,23 @@ $(document).ready(function () {
   var lon;
   var clientKey = "5544a9b0-1613-11eb-b538-2f88524d0231";
 
+  function getUserLocation(event) {
+    //prevent submit default action
+    event.preventDefault();
+
+    //checks to make sure geo location is avaialble on the browser
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (pos) {
+        lat = pos.coords.latitude;
+        lon = pos.coords.longitude;
+        getTrails(lat, lon);
+      });
+    }
+  }
+
+  ///Event Listeners
+  $("#user-location").click(getUserLocation);
+
   // api call to get latitude and longitude
   $("#zip").click(function (event) {
         event.preventDefault();
