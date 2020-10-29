@@ -43,17 +43,17 @@
   </div>
 </div>
 
-<!-- -->
+<!--Card that houses the search parameters-->
 
 <div class="card-group d-flex justify-content-center rounded">
 <div class="card bg-light shadow mb-3" style="max-width: 25rem;">
     <div class="card-body mx-auto">
-    <h5 class="card-title text-center">Find your trails and Brews</h5>
+    <h5 class="card-title text-center">Find your trails and breweries</h5>
     <form class="form">
 
     <input class="form-control mr-5" type="search" placeholder="Zip Code" aria-label="Search" id="search">
 
-    <button class="btn btn-outline-success m-3" type="submit" id="zip">Enter your Zip</button>
+    <button class="btn btn-outline-success m-3" type="submit" id="zip">Search by Zip</button>
     <button class="btn btn-outline-success m-3" type="submit" id="user-location">Use my location</button>
   </form>
     </div>
@@ -61,7 +61,7 @@
   </div>
 
 
-
+<!--Card that holds the trail results-->
 <div class="container card-group d-none" id="display-table">
 <div class="card border rounded bg-light mt-5 mb-3 mx-auto shadow" style="max-width: 25rem;">
   <div class="card-header font-weight-bold text-center">Trails</div>
@@ -101,6 +101,8 @@
   </div>
 </div>
 
+
+<!--Card that holds the brewery results-->
 <div class="card border rounded bg-light mt-5 mb-3 mx-auto shadow" style="max-width: 25rem;">
 <div class="card-header font-weight-bold text-center">Breweries</div>
   <div class="card-body">
@@ -145,13 +147,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title"> <!-- Brewery NAME --> <</h5>
+        <h5 class="modal-title"> </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p> <!-- Brewery INFO --></p>
+        <p></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-success m-3" > Take me there </button>
@@ -185,8 +187,8 @@
 
 
 
-
-<footer class="page-footer font-small blue">
+<!--Page footer-->
+<footer class="page-footer">
   <div class="footer-copyright text-center py-3">Made by Team Awesome.
    </div>
   </footer>
