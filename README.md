@@ -10,7 +10,7 @@
 
 * repo: https://github.com/jorgeHernandez1/team-project-1
 
-* URL: 
+* URL: https://jorgehernandez1.github.io/team-project-1/
 
 
 ![screenshot](assets/IMG/app-screenshot.png)
