@@ -113,7 +113,7 @@ $(document).ready(function () {
   $("#user-location").click(getUserLocation);
   $(".brew-row").click(showBreweryDetails);
 
-  // api call to get latitude and longitude
+  // api call to get latitude and longitude from user provided zip code
   $("#zip").click(function (event) {
     event.preventDefault();
     var userEntry = $("#search").val();
@@ -135,6 +135,8 @@ $(document).ready(function () {
       getBreweries(lat, lon);
     });
   });
+
+// getTrails function grabs the list of trails from the provided latitude and longitude from either api or current location and returns trail data
 
   function getTrails(lat, lon) {
     var settings = {
@@ -161,6 +163,8 @@ $(document).ready(function () {
         $("#trail" + index).text(element.name);
       }
     });
+
+// populates modal for trail information
 
     $(".trail-row").click(function () {
       $("#trail-name-modal").empty();
