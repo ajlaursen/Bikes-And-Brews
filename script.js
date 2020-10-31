@@ -43,28 +43,81 @@ $(document).ready(function () {
       document.createElement("div")
     );
     //submit request to google
-    service.nearbySearch(request, function (results, status) {
+    service.nearbySearch(request, (results, status) => {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
-        //add results to brew rows   
-        for(var i = 0; i < 5; i++){
-            var ele = $("#brew" + i);
-            ele.text(results[i].name);
-            ele.attr("data-place-id",results[i].place_id);
+        //add results to brew rows
+        for (var i = 0; i < 5; i++) {
+          var ele = $("#brew" + i);
+          ele.text(results[i].name);
+          ele.attr("data-place-id", results[i].place_id);
         }
+      }
+    });
+  }
+
+  function showBreweryDetails() {
+    //capture place id from clicked row
+    var placeID = $(this).attr("data-place-id");
+    //add request parameters
+    const request = {
+      placeId: placeID,
+      fields: [
+        "name",
+        "formatted_address",
+        "place_id",
+        "opening_hours",
+        "rating",
+        "photo",
+        "website"
+      ],
+    };
+    //make request to google for place details
+    service.getDetails(request, (place, status) => {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        //add data to hidden modal
+        $("#brew-title").text(place.name);
+
+        //get day and set to 0 index value
+        var dateObj = new Date();
+        var dayNum = dateObj.getDay() - 1;
+        var days = place.opening_hours.weekday_text;
+        $("#brew-hours").empty();
+        //loop though weekday opening hours and append to modal
+        for (let i = 0; i < days.length; i++) {
+          const day = days[i];
+          var dayEle = $("<div>");
+          dayEle.text(day);
+          //make today bold
+          if (i === dayNum) {
+            dayEle.attr("class", "font-weight-bold");
+          }
+          $("#brew-hours").append(dayEle);
+        }
+
+        $("#brew-rating").text(place.rating);
+        $("#brew-address").text(place.formatted_address);
+        $("#brew-image").attr("src",place.photos[0].getUrl);
+        $("#brew-image").attr("style","height: auto;");
+        $("#brew-image").attr("style","max-width: 100%;");
+        $("#brew-image").attr("class","img-fluid");
+        $("#brew-link").click(function () {
+          window.open(place.website, '_blank');
+        });
+        //show hidden modal
+        $("#brewInfo1").modal("show");
       }
     });
   }
 
   ///Event Listeners
   $("#user-location").click(getUserLocation);
+  $(".brew-row").click(showBreweryDetails);
 
   // api call to get latitude and longitude
   $("#zip").click(function (event) {
     event.preventDefault();
     var userEntry = $("#search").val();
-    console.log("i was clicked");
-    console.log(userEntry);
-    var url = 
+    var url =
       "https://app.zipcodebase.com/api/v1/search?apikey=" +
       clientKey +
       "&codes=" +
@@ -78,9 +131,8 @@ $(document).ready(function () {
       var rerturnedResults = response.results[userEntry];
       lat = rerturnedResults[0].latitude;
       lon = rerturnedResults[0].longitude;
-      console.log(lat, lon);
       getTrails(lat, lon);
-      getBreweries(lat,lon);
+      getBreweries(lat, lon);
     });
   });
 

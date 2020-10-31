@@ -191,7 +191,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="brew-title"></h5>
+            <h3 class="modal-title" id="brew-title"></h3>
             <button
               type="button"
               class="close"
@@ -202,15 +202,26 @@
             </button>
           </div>
           <div class="modal-body">
-            <h4>Hours: <span id="brew-hours"></span></h4>
-            <h4>Rating: <span id="brew-rating"></span></h4>
-            <h4>Address: <span id="brew-address"></span></h4>
-           <img alt="brewery image" id="brew-image">
+            <h5>Google Rating: <span id="brew-rating"></span></h5>
+            <h5>Address: <span id="brew-address"></span></h5>
+            <div class="row">
+              <div class="col-sm-3">
+                <h4>Hours:</h4>
+              </div>
+              <div class="col-sm-9" id="brew-hours"></div>
+            </div>
+
+            <img alt="brewery image" id="brew-image" />
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-outline-success m-3">
-              Take me there
-            </button>
+              <button
+                type="button"
+                class="btn btn-outline-success m-3"
+                id="brew-link"
+              >
+                Take me there
+              </button>
+
           </div>
         </div>
       </div>
@@ -279,7 +290,7 @@
     ></script>
     <script
       defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfZv9ttNJl-bc9OPqYjlgAXwMPII3zbRE&libraries=places&callback=initMap"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfZv9ttNJl-bc9OPqYjlgAXwMPII3zbRE&libraries=places"
     ></script>
     <script src="script.js"></script>
   </body>
