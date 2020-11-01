@@ -8,9 +8,9 @@
 
 * A lot of cyclists enjoy drinking craft brewed beer after a ride so this is a perfect pairing
 
-* repo: https://github.com/jorgeHernandez1/team-project-1
+* repo: https://github.com/ajlaursen/Bikes-And-Brews
 
-* URL: https://jorgehernandez1.github.io/team-project-1/
+* URL: https://ajlaursen.github.io/Bikes-And-Brews/
 
 
 ![screenshot](assets/IMG/app-screenshot.png)
