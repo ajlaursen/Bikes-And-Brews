@@ -16,3 +16,5 @@
 ![screenshot](assets/IMG/app-screenshot.png)
 
 * Contact: Alex Laursen- Ajlaursen@aol.com
+
+* License: [License](LICENSE)
