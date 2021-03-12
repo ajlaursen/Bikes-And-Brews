@@ -155,7 +155,6 @@ $(document).ready(function () {
     };
 
     $.ajax(settings).then(function (response) {
-      console.log(response);
       $("#display-table").removeClass("d-none");
       trailData = response.data;
       for (let index = 0; index < trailData.length; index++) {
@@ -173,7 +172,6 @@ $(document).ready(function () {
       $("#trail-descrip").empty();
       $("#trail-img").empty();
       var dataId = $(this).attr("data-id");
-      console.log(dataId);
       $("#trailInfo1").modal("show");
       $("#trail-name-modal").text(trailData[dataId].name);
       $("#trail-length").text("Length: " + trailData[dataId].length + " miles");
